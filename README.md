@@ -70,6 +70,7 @@ https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9
 https://cloud.yandex.ru/docs/cli/quickstart#install
  Нужно выполнить команду
   yc compute image list --folder-id standard-images
+
 в первой колонке будет image_id
 
 3) vm_name - это имя виртуальной машины. Любое, главное чтобы оно было уникальное.
@@ -118,22 +119,22 @@ yc compute instance list
 # Замечания:
 Это тестовый пример настройки Yandex Cloud с помощью my-config.tf
 Для тестов использовался образ Ubuntu 20.04
-image_id = "fd8ju9iqf6g5bcq77jns"
+  image_id = "fd8ju9iqf6g5bcq77jns"
+
 вы можете использовать другой, но он может потребовать большего количества памяти.
 В этом случае 
 нужно будет поменять 
-  resources {
-    cores  = 2
-    memory = 2
-  }
-здесь cores - количество ядер
-memory - количество оперативной памяти (в GB)
+    resources {
+      cores  = 2
+      memory = 2
+    }
 
-terraform state list 
+здесь 
+  cores - количество ядер
+  memory - количество оперативной памяти (в GB)
+
+## terraform state list 
 выводит стейт-файл
 
-terraform destroy
+## terraform destroy
 удаляет инфраструктуру
-
-## Ошибка
- Terraform: could not connect to registry.terraform.io 
