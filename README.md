@@ -35,29 +35,29 @@ https://cloud.yandex.ru/docs/tutorials/infrastructure-management/terraform-quick
 В ОС Windows:
 
 
-Откройте файл конфигурации Terraform CLI terraform.rc в папке %APPDATA% вашего пользователя.
+    Откройте файл конфигурации Terraform CLI terraform.rc в папке %APPDATA% вашего пользователя.
 
-Добавьте в него следующий блок:
+    Добавьте в него следующий блок:
 
-provider_installation {
-  network_mirror {
-    url = "https://terraform-mirror.yandexcloud.net/"
-    include = ["registry.terraform.io/*/*"]
-  }
-  direct {
-    exclude = ["registry.terraform.io/*/*"]
-  }
-}
-3. Рядом с my-config.tf
-Создайте файл terraform.tfvars
-Он должен содержать текст вида:
+    provider_installation {
+      network_mirror {
+        url = "https://terraform-mirror.yandexcloud.net/"
+        include = ["registry.terraform.io/*/*"]
+      }
+      direct {
+        exclude = ["registry.terraform.io/*/*"]
+      }
+    }
+## Рядом с my-config.tf
+    Создайте файл terraform.tfvars
+    Он должен содержать текст вида:
 
-ya_cloud_token = "text"
-image_id = "text"
-zone = "ru-central1-a"
-vm_name = "agrusha-vm-05102022"
- = "text"
-cloud_id = "text"
+    ya_cloud_token = "text"
+    image_id = "text"
+    zone = "ru-central1-a"
+    vm_name = "agrusha-vm-05102022"
+    = "text"
+    cloud_id = "text"
 
 Здесь
 1) как получить ya_cloud_token описано здесь
@@ -69,25 +69,25 @@ https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9
 С помощью Yandex CLI.
 https://cloud.yandex.ru/docs/cli/quickstart#install
  Нужно выполнить команду
-yc compute image list --folder-id standard-images
+  yc compute image list --folder-id standard-images
 в первой колонке будет image_id
 
 3) vm_name - это имя виртуальной машины. Любое, главное чтобы оно было уникальное.
 
 4) cloud_id - id облака в Yandex Cloud
 Его можно узнать с помощью команды
-yc resource-manager cloud list
+  yc resource-manager cloud list
 
 folder_id - id папки в Yandex Cloud
 С помощью Yandex CLI.
-yc resource-manager folder create --name project-1
+  yc resource-manager folder create --name project-1
 где project-1 - это имя папки.
 
 Если папка уже создана, то воспользуйтесь командой
-yc resource-manager folder list
+  yc resource-manager folder list
 
 после это если выполнить
-yc config set folder-id b1111111111111111111v --profile default 
+  yc config set folder-id b1111111111111111111v --profile default 
 где b1111111111111111111v - folder_id
 то Yandex CLI будет считать эту папку текущей
 
