@@ -55,9 +55,10 @@ https://cloud.yandex.ru/docs/tutorials/infrastructure-management/terraform-quick
     ya_cloud_token = "text"
     image_id = "text"
     zone = "ru-central1-a"
-    vm_name = "agrusha-vm-05102022"
-    = "text"
+    vm_name = "agrusha-vm-20102022"
+    folder_id = "text"
     cloud_id = "text"
+    user_password = "text"
 
 Здесь
 1) как получить ya_cloud_token описано здесь
